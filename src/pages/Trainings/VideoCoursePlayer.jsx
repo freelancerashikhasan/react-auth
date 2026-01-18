@@ -19,7 +19,8 @@ import {
     Zap,
     ZapOff,
     Award,
-    Timer
+    Timer,
+    Maximize, Minimize
 } from 'lucide-react';
 import { useParams, useNavigate } from 'react-router-dom';
 import toast from 'react-hot-toast';
@@ -31,7 +32,8 @@ const VideoCoursePlayer = () => {
     const { courseId } = useParams();
     const navigate = useNavigate();
     const api = useAPI();
-    
+    const [isFullscreen, setIsFullscreen] = useState(false);
+
     // States
     const [loading, setLoading] = useState(true);
     const [course, setCourse] = useState(null);
@@ -89,6 +91,35 @@ const [playerVolume, setPlayerVolume] = useState(50); // Store for UI display
 
     const getWatchedVideosCookieName = useCallback(() => `watched_videos_${courseId}`, [courseId]);
     const getBookmarksCookieName = useCallback(() => `bookmarks_${courseId}`, [courseId]);
+const toggleFullscreen = useCallback(() => {
+    const element = mainVideoContainerRef.current;
+    if (!element) return;
+
+    if (!document.fullscreenElement) {
+        element.requestFullscreen?.()
+            || element.webkitRequestFullscreen?.()
+            || element.mozRequestFullScreen?.()
+            || element.msRequestFullscreen?.();
+    } else {
+        document.exitFullscreen?.()
+            || document.webkitExitFullscreen?.()
+            || document.mozCancelFullScreen?.()
+            || document.msExitFullscreen?.();
+    }
+}, []);
+useEffect(() => {
+    const handleFullscreenChange = () => {
+        setIsFullscreen(!!document.fullscreenElement);
+    };
+
+    document.addEventListener('fullscreenchange', handleFullscreenChange);
+    document.addEventListener('webkitfullscreenchange', handleFullscreenChange);
+
+    return () => {
+        document.removeEventListener('fullscreenchange', handleFullscreenChange);
+        document.removeEventListener('webkitfullscreenchange', handleFullscreenChange);
+    };
+}, []);
 
 const updatePlayerVolume = useCallback(async () => {
     if (!vimeoPlayer) return;
@@ -1110,6 +1141,18 @@ const handleVideoClick = useCallback(() => {
                                             ))}
                                         </div>
                                     </div>
+                                    <button
+                                        className="control-button"
+                                        onClick={toggleFullscreen}
+                                        title={isFullscreen ? 'Exit Fullscreen' : 'Fullscreen'}
+                                    >
+                                        {isFullscreen ? (
+                                            <Minimize size={20} />
+                                        ) : (
+                                            <Maximize size={20} />
+                                        )}
+                                    </button>
+
                                     
                                    
                                   
