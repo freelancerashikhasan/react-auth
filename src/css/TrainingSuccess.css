@@ -1,0 +1,191 @@
+.training-success-container {
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  min-height: 100vh;
+}
+
+.success-hero {
+  animation: fadeInDown 0.8s ease-out;
+}
+
+.success-badge {
+  width: 120px;
+  height: 120px;
+  margin: 0 auto;
+}
+
+.success-circle-1, .success-circle-2, .success-circle-3 {
+  position: absolute;
+  border-radius: 50%;
+  animation: pulse 2s infinite;
+}
+
+.success-circle-1 {
+  width: 120px;
+  height: 120px;
+  background: rgba(40, 167, 69, 0.1);
+  top: 0;
+  left: 0;
+}
+
+.success-circle-2 {
+  width: 100px;
+  height: 100px;
+  background: rgba(40, 167, 69, 0.15);
+  top: 10px;
+  left: 10px;
+  animation-delay: 0.2s;
+}
+
+.success-circle-3 {
+  width: 80px;
+  height: 80px;
+  background: rgba(40, 167, 69, 0.2);
+  top: 20px;
+  left: 20px;
+  animation-delay: 0.4s;
+}
+
+.bg-gradient-primary {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+}
+
+.training-meta-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 1.5rem;
+}
+
+.meta-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.75rem;
+  background: rgba(0, 0, 0, 0.02);
+  border-radius: 10px;
+  transition: transform 0.2s;
+}
+
+.meta-item:hover {
+  transform: translateY(-2px);
+  background: rgba(0, 0, 0, 0.04);
+}
+
+.meta-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+.step-number-wrapper {
+  position: relative;
+  margin-bottom: 1.5rem;
+}
+
+.step-number {
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 32px;
+  height: 32px;
+  background: #667eea;
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.step-icon {
+  width: 80px;
+  height: 80px;
+  margin: 0 auto;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.step-card, .help-card, .related-course-card {
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+}
+
+.step-card:hover, .help-card:hover, .related-course-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  border-color: #667eea;
+}
+
+.tip-item {
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s;
+}
+
+.tip-item:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+}
+
+.tip-number {
+  font-size: 24px;
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(0.95);
+    opacity: 0.5;
+  }
+  50% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(0.95);
+    opacity: 0.5;
+  }
+}
+
+.animate-spin {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .training-meta-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .action-buttons .btn {
+    width: 100%;
+  }
+}

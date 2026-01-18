@@ -1,0 +1,524 @@
+/* src/pages/Trainings/Trainings.css */
+.trainings-page {
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.page-header {
+    margin-bottom: 2.5rem;
+}
+
+.page-title {
+    font-size: 2.5rem;
+    font-weight: 800;
+    background: linear-gradient(135deg, #6C5CE7 0%, #FF6B9D 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 0.5rem;
+}
+
+.page-subtitle {
+    color: #a0a0a0;
+    font-size: 1.1rem;
+    max-width: 600px;
+}
+
+/* Filters */
+.filters-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2.5rem;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    padding: 1.5rem;
+    background: linear-gradient(135deg, rgba(108, 92, 231, 0.05) 0%, rgba(255, 107, 157, 0.05) 100%);
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.search-box {
+    position: relative;
+    flex: 1;
+    min-width: 300px;
+}
+
+.search-icon {
+    position: absolute;
+    left: 1.25rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #6C5CE7;
+}
+
+.search-input {
+    width: 100%;
+    padding: 1rem 1.25rem 1rem 3.5rem;
+    background: rgba(255, 255, 255, 0.05);
+    border: 2px solid rgba(108, 92, 231, 0.1);
+    border-radius: 14px;
+    color: white;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+}
+
+.search-input:focus {
+    outline: none;
+    border-color: #6C5CE7;
+    box-shadow: 0 0 0 3px rgba(108, 92, 231, 0.2);
+    background: rgba(108, 92, 231, 0.05);
+}
+
+.filter-buttons {
+    display: flex;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+}
+
+.filter-btn {
+    padding: 0.75rem 1.5rem;
+    background: rgba(255, 255, 255, 0.05);
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+}
+
+.filter-btn:hover {
+    background: rgba(108, 92, 231, 0.1);
+    border-color: rgba(108, 92, 231, 0.3);
+    color: white;
+    transform: translateY(-2px);
+}
+
+.filter-btn.active {
+    background: linear-gradient(135deg, #6C5CE7 0%, #8B7CFF 100%);
+    color: white;
+    border: none;
+    box-shadow: 0 4px 15px rgba(108, 92, 231, 0.3);
+}
+
+/* Trainings Grid - Modern Layout */
+.trainings-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+    gap: 2rem;
+}
+
+.training-card {
+    background: linear-gradient(145deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.02) 100%);
+    backdrop-filter: blur(20px);
+    border-radius: 24px;
+    padding: 2rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+    min-height: 320px;
+}
+
+.training-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 5px;
+    background: linear-gradient(90deg, #6C5CE7, #FF6B9D, #00B894);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.training-card:hover {
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3),
+                0 0 0 1px rgba(108, 92, 231, 0.2),
+                inset 0 0 0 1px rgba(255, 255, 255, 0.05);
+    border-color: rgba(108, 92, 231, 0.3);
+}
+
+.training-card:hover::before {
+    opacity: 1;
+}
+
+/* Card Header */
+.training-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 1.5rem;
+    position: relative;
+}
+
+.training-icon-wrapper {
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, rgba(108, 92, 231, 0.1) 0%, rgba(108, 92, 231, 0.2) 100%);
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.training-icon-wrapper::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, transparent 30%, rgba(255, 255, 255, 0.1) 100%);
+    border-radius: 16px;
+}
+
+.training-icon-wrapper svg {
+    color: #6C5CE7;
+    width: 28px;
+    height: 28px;
+    z-index: 1;
+}
+
+.status-badge {
+    padding: 0.5rem 1rem;
+    border-radius: 12px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    backdrop-filter: blur(10px);
+    border: 1px solid;
+}
+
+.status-badge.upcoming {
+    background: linear-gradient(135deg, rgba(76, 175, 80, 0.15) 0%, rgba(76, 175, 80, 0.05) 100%);
+    color: #4CAF50;
+    border-color: rgba(76, 175, 80, 0.3);
+    box-shadow: 0 4px 12px rgba(76, 175, 80, 0.1);
+}
+
+.status-badge.completed {
+    background: linear-gradient(135deg, rgba(33, 150, 243, 0.15) 0%, rgba(33, 150, 243, 0.05) 100%);
+    color: #2196F3;
+    border-color: rgba(33, 150, 243, 0.3);
+    box-shadow: 0 4px 12px rgba(33, 150, 243, 0.1);
+}
+
+/* Training Title */
+.training-title {
+    color: white;
+    font-size: 1.35rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    line-height: 1.4;
+    background: linear-gradient(135deg, #fff 0%, #a0a0a0 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* Training Details Grid */
+.trainings-details {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+    padding: 1.5rem;
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    max-height: 60vh !important;
+    color: rgba(255, 255, 255, 0.8) !important;
+
+}
+
+.training-card-body .detail-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    color: rgba(255, 255, 255, 0.8) !important;
+    font-size: 0.95rem;
+}
+
+.detail-item svg {
+    color: #6C5CE7;
+    width: 18px;
+    height: 18px;
+    flex-shrink: 0;
+}
+
+/* Price Tag */
+.price-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: linear-gradient(135deg, rgba(108, 92, 231, 0.2) 0%, rgba(255, 107, 157, 0.2) 100%);
+    padding: 0.5rem 1rem;
+    border-radius: 12px;
+    color: white;
+    font-weight: 700;
+    font-size: 1.1rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    margin-top: 0.5rem;
+}
+
+/* Training Actions */
+.training-actions {
+    display: flex;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+    padding-top: 1.5rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.action-btn {
+    flex: 1;
+    min-width: 140px;
+    padding: 0.875rem 1.25rem;
+    border-radius: 12px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+    backdrop-filter: blur(10px);
+}
+
+.action-btn svg {
+    width: 18px;
+    height: 18px;
+    transition: transform 0.3s ease;
+}
+
+.action-btn:hover svg {
+    transform: translateY(-2px);
+}
+
+.action-btn.receipt-btn {
+    background: linear-gradient(135deg, rgba(33, 150, 243, 0.2) 0%, rgba(33, 150, 243, 0.1) 100%);
+    color: #2196F3;
+    border: 1px solid rgba(33, 150, 243, 0.3);
+}
+
+.action-btn.receipt-btn:hover {
+    background: linear-gradient(135deg, rgba(33, 150, 243, 0.3) 0%, rgba(33, 150, 243, 0.2) 100%);
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 8px 20px rgba(33, 150, 243, 0.2);
+}
+
+.action-btn.entry-pass-btn {
+    background: linear-gradient(135deg, rgba(108, 92, 231, 0.2) 0%, rgba(108, 92, 231, 0.1) 100%);
+    color: #8B7CFF;
+    border: 1px solid rgba(108, 92, 231, 0.3);
+}
+
+.action-btn.entry-pass-btn:hover {
+    background: linear-gradient(135deg, rgba(108, 92, 231, 0.3) 0%, rgba(108, 92, 231, 0.2) 100%);
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 8px 20px rgba(108, 92, 231, 0.2);
+}
+
+.action-btn.certificate-btn {
+    background: linear-gradient(135deg, rgba(255, 193, 7, 0.2) 0%, rgba(255, 193, 7, 0.1) 100%);
+    color: #FFD700;
+    border: 1px solid rgba(255, 193, 7, 0.3);
+}
+
+.action-btn.certificate-btn:hover {
+    background: linear-gradient(135deg, rgba(255, 193, 7, 0.3) 0%, rgba(255, 193, 7, 0.2) 100%);
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 8px 20px rgba(255, 193, 7, 0.2);
+}
+
+.action-btn.materials-btn {
+    background: linear-gradient(135deg, rgba(76, 175, 80, 0.2) 0%, rgba(76, 175, 80, 0.1) 100%);
+    color: #4CAF50;
+    border: 1px solid rgba(76, 175, 80, 0.3);
+}
+
+.action-btn.materials-btn:hover {
+    background: linear-gradient(135deg, rgba(76, 175, 80, 0.3) 0%, rgba(76, 175, 80, 0.2) 100%);
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 8px 20px rgba(76, 175, 80, 0.2);
+}
+
+/* Certificate Badge */
+.certificate-badge {
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+    width: 70px;
+    height: 70px;
+    background: url('https://cdn.jsdelivr.net/npm/heroicons@1.0.1/outline/sparkles.svg') no-repeat center;
+    background-size: contain;
+    cursor: pointer;
+    transition: all 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+    filter: drop-shadow(0 0 12px rgba(255, 215, 0, 0.4));
+    opacity: 0.8;
+    animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(-10px) rotate(5deg); }
+}
+
+.certificate-badge:hover {
+    transform: scale(1.2) rotate(15deg);
+    filter: drop-shadow(0 0 20px rgba(255, 215, 0, 0.6));
+    opacity: 1;
+    animation: none;
+}
+
+/* Empty State */
+.empty-state {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 5rem 2rem;
+    background: linear-gradient(135deg, rgba(108, 92, 231, 0.05) 0%, rgba(255, 107, 157, 0.05) 100%);
+    border-radius: 24px;
+    border: 2px dashed rgba(108, 92, 231, 0.2);
+    backdrop-filter: blur(10px);
+}
+
+.empty-icon {
+    color: #6C5CE7;
+    margin-bottom: 1.5rem;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.7; transform: scale(1.05); }
+}
+
+.empty-state h3 {
+    color: white;
+    font-size: 1.75rem;
+    margin-bottom: 0.75rem;
+    background: linear-gradient(135deg, #fff 0%, #a0a0a0 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.empty-state p {
+    color: rgba(255, 255, 255, 0.7);
+    max-width: 400px;
+    margin: 0 auto 1.5rem;
+}
+
+/* Loading State */
+.loading-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+    gap: 2rem;
+}
+
+.loading-card {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 24px;
+    padding: 2rem;
+    height: 320px;
+    animation: pulse 1.5s infinite;
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+    .trainings-grid {
+        grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    }
+}
+
+@media (max-width: 768px) {
+    .trainings-page {
+        padding: 1.5rem;
+    }
+    
+    .page-title {
+        font-size: 2rem;
+    }
+    
+    .trainings-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .filters-section {
+        flex-direction: column;
+        align-items: stretch;
+        padding: 1.25rem;
+    }
+    
+    .search-box {
+        min-width: 100%;
+    }
+    
+    .action-btn {
+        min-width: 120px;
+    }
+    
+    .training-card {
+        padding: 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .trainings-page {
+        padding: 1rem;
+    }
+    
+    .training-actions {
+        flex-direction: column;
+    }
+    
+    .action-btn {
+        width: 100%;
+        min-width: auto;
+    }
+    
+    .training-title {
+        font-size: 1.25rem;
+    }
+    
+    .detail-item {
+        font-size: 0.9rem;
+    }
+}
+
+/* Premium Card Styles */
+.premium-card {
+    position: relative;
+    background: linear-gradient(145deg, rgba(108, 92, 231, 0.1) 0%, rgba(255, 107, 157, 0.1) 100%);
+    border: 1px solid rgba(108, 92, 231, 0.3);
+}
+
+.premium-card::after {
+    content: 'PREMIUM';
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: linear-gradient(135deg, #FFD700, #FFC107);
+    color: #333;
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+    font-size: 0.7rem;
+    font-weight: 800;
+    letter-spacing: 1px;
+    z-index: 2;
+}
+
+/* Free Card Styles */
+.free-card {
+    background: linear-gradient(145deg, rgba(0, 184, 148, 0.05) 0%, rgba(0, 184, 148, 0.02) 100%);
+    border-color: rgba(0, 184, 148, 0.2);
+}

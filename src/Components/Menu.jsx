@@ -10,26 +10,26 @@ const useAuth = () => {
   };
   
   function Menu() {
-    const isAuthenticated = useAuth();
-    const location = useLocation();
-  
-    // Redirect based on authentication status
-    if (!isAuthenticated && location.pathname !== '/form') {
-      return <Navigate to="/form" />;
-    }
+      const isAuthenticated = useAuth();
+      const location = useLocation();
     
-    if (isAuthenticated && location.pathname === '/form') {
-      return <Navigate to="/" />;
-    }
-    return (
-        <div>
-            <ul>
-                <li><NavLink className={(isActive)=>isActive?'active':'inactive'} to="/">Home</NavLink></li>
-                <li><NavLink to="/chat/10"  className={(isActive)=>isActive?'active':'inactive'}>Chat</NavLink></li>
-                <li><NavLink to="/form"  className={(isActive)=>isActive?'active':'inactive'}>Form</NavLink></li>
-            </ul>
-        </div>
-    )
-}
+      // Redirect based on authentication status
+      // if (!isAuthenticated && location.pathname !== '/form') {
+      //   return <Navigate to="/form" />;
+      // }
+      
+      // if (isAuthenticated && location.pathname === '/form') {
+      //   return <Navigate to="/" />;
+      // }
+      return (
+          <div>
+              <ul>
+                  <li><NavLink className={(isActive)=>isActive?'active':'inactive'} to="/">Home</NavLink></li>
+                  <li><NavLink to="/chat/10"  className={(isActive)=>isActive?'active':'inactive'}>Chat</NavLink></li>
+                  <li><NavLink to="/form"  className={(isActive)=>isActive?'active':'inactive'}>Form</NavLink></li>
+              </ul>
+          </div>
+      )
+  }
 
 export default Menu

@@ -1,0 +1,129 @@
+.featured-section {
+    width: 100%;
+}
+
+.feature-section {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero-background {
+    background-size: cover !important;
+    background-position: top !important;
+    background-repeat: no-repeat !important;
+    background-attachment: fixed;
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    opacity: 0;
+}
+
+.hero-content-container {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 80vh;
+}
+
+.hero-content-wrapper {
+    width: 100%;
+}
+
+.hero-title {
+    font-size: 3rem;
+    font-weight: 500;
+    line-height: 1.2;
+    max-width: 800px;
+    margin: 0 auto;
+    font-family: 'Suisse Intl', sans-serif;
+
+}
+
+.hero-description {
+    color: var(--color-text-white);
+    font-size: 18px;
+    opacity: 0.9;
+    max-width: 500px;
+    margin: 0 auto 30px;
+}
+
+.hero-price {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #ffd700;
+}
+
+.book-now-btn {
+    background-color: var(--color-white);
+    color: var(color-dark);
+    border: none;
+    padding: 15px 40px;
+    border-radius: 50px;
+    font-size: 1.1rem;
+    font-weight: 500;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.book-now-btn:hover {
+    background-color: #0056b3;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.btn-arrow {
+    width: 20px;
+    filter: brightness(0) invert(1);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .hero-title {
+        font-size: 2rem;
+        padding: 0 20px;
+    }
+    
+    .hero-description {
+        font-size: 1rem;
+        padding: 0 20px;
+    }
+    
+    .hero-price {
+        font-size: 1.5rem;
+    }
+    
+    .book-now-btn {
+        padding: 12px 30px;
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-title {
+        font-size: 1.5rem;
+    }
+    
+    .hero-description {
+        font-size: 0.9rem;
+    }
+    
+    .book-now-btn {
+        padding: 10px 25px;
+        font-size: 0.9rem;
+    }
+}
